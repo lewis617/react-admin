@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Table } from 'antd';
-import 'antd/dist/antd.css';
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
 const dataSource = [{
   name: '胡彦斌',
@@ -29,8 +29,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Button>按钮</Button>
-        <Table dataSource={dataSource} columns={columns} />
+        <Router>
+          <ul>
+            <li><Link to="/">按钮页</Link></li>
+            <li><Link to="/table">表格页</Link></li>
+          </ul>
+          <Route exact path="/" render={() => <Button>按钮</Button>} />
+          <Route path="/table" render={() => <Table dataSource={dataSource} columns={columns} />} />
+        </Router>
       </div>
     );
   }
