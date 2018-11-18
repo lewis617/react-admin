@@ -1,6 +1,8 @@
 import React from 'react';
 import { Layout, Menu, Button } from 'antd';
 import { Route, Redirect } from 'react-router-dom';
+import User from './User';
+import Post from './Post';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -30,8 +32,8 @@ class Protect extends React.Component {
             <Menu.Item key="/protect/user">
               用户
             </Menu.Item>
-            <Menu.Item key="/protect/pie">
-              统计
+            <Menu.Item key="/protect/post">
+              文章
             </Menu.Item>
           </Menu>
         </Sider>
@@ -39,8 +41,8 @@ class Protect extends React.Component {
           <Header style={{ background: 'white' }}><div style={{ float: 'right' }}>你好，{userName} <Button onClick={this.handleLogout}>注销</Button></div></Header>
           <Content style={{ padding: 20 }}>
             <Redirect from="/protect" to="/protect/user" />
-            <Route path="/protect/user" render={() => '用户'} />
-            <Route path="/protect/pie" render={() => '统计'} />
+            <Route path="/protect/user" component={User} />
+            <Route path="/protect/post" component={Post} />
           </Content>
           <Footer>
             Created by 刘一奇
