@@ -1,4 +1,5 @@
 export default {
+  disableCSSModules: true,
   "externals": {
     "react": "React",
     "react-dom": "ReactDOM",
